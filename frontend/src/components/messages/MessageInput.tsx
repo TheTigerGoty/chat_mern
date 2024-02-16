@@ -1,5 +1,7 @@
 import { BsSend } from "react-icons/bs";
 
+//!----------------------------------------------------------------------------------------!//
+
 const MessageInput = () => {
     return (
         <form className="px4 my-3">
@@ -13,5 +15,7 @@ const MessageInput = () => {
         </form>
     )
 }
+
+//!----------------------------------------------------------------------------------------!//
 
 export default MessageInput;

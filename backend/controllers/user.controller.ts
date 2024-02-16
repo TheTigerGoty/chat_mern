@@ -1,9 +1,13 @@
 import { Request, Response } from 'express';
 import User, { UserInterface } from '../models/user.model';
 
+//!----------------------------------------------------------------------------------------!//
+
 interface AuthenticatedRequest extends Request {
     user?: UserInterface;
 }
+
+//!----------------------------------------------------------------------------------------!//
 
 export const getUsersForSidebar = async (req: AuthenticatedRequest, res: Response) => {
     try {

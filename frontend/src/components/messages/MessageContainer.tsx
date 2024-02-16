@@ -2,8 +2,13 @@ import { TiMessages } from "react-icons/ti"
 import MessageInput from "./MessageInput"
 import Messages from "./Messages"
 
+//!----------------------------------------------------------------------------------------!//
+
 const MessageContainer = () => {
     const nochatSelected = true
+
+    //!----------------------------------------------------------------------------------------!//
+
     return (
         <div className="md:min-w-[450px] flex flex-col">
             {nochatSelected ? <NoChatSelected /> : (
@@ -19,6 +24,8 @@ const MessageContainer = () => {
         </div>
     )
 }
+
+//!----------------------------------------------------------------------------------------!//
 
 export default MessageContainer
 

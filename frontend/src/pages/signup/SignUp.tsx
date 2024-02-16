@@ -1,5 +1,55 @@
+import { Link } from 'react-router-dom';
 import GenderCheckBox from './GenderCheckBox';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import useSignup from '../../hooks/useSignup';
+
+//!----------------------------------------------------------------------------------------!//
+
+interface Formulario {
+    fullname: string;
+    username: string;
+    password: string;
+    confirmPassword: string;
+    gender: string;
+}
+
+//!----------------------------------------------------------------------------------------!//
+
 const SignUp = () => {
+
+    const [formulario, setFormulario] = useState<Formulario>({
+        fullname: '',
+        username: '',
+        password: '',
+        confirmPassword: '',
+        gender: ''
+    })
+    const { fullname, username, password, confirmPassword, gender } = formulario
+
+    const { loading, signup } = useSignup()
+
+    //*----------------------------------------------------------------------------------------*//
+
+    const handleCheckBoxChange = (gender: string) => {
+        setFormulario({ ...formulario, gender })
+    }
+
+    //*----------------------------------------------------------------------------------------*//
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormulario({ ...formulario, [name]: value });
+    };
+
+    //*----------------------------------------------------------------------------------------*//
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        await signup(formulario)
+    }
+
+    //!----------------------------------------------------------------------------------------!//
+
     return (
         <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
             <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
@@ -8,19 +58,35 @@ const SignUp = () => {
                     <span className="text-blue-500">ChatApp</span>
                 </h1>
 
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div>
                         <label className="label p-2">
                             <span className="text-base label-text">Full Name</span>
                         </label>
-                        <input type="text" placeholder="Castro Barrera" className="w-full input input-bordered h-10" />
+                        <input
+                            type="text"
+                            placeholder="Enter Fullname"
+                            className="w-full input input-bordered h-10"
+                            value={fullname}
+                            name='fullname'
+                            onChange={handleChange}
+
+                        />
                     </div>
 
                     <div>
                         <label className="label p-2">
                             <span className="text-base label-text">Username</span>
                         </label>
-                        <input type="text" placeholder="Enter Username" className="w-full input input-bordered h-10" />
+                        <input
+                            type="text"
+                            placeholder="Enter Username"
+                            className="w-full input input-bordered h-10"
+                            value={username}
+                            name='username'
+                            onChange={handleChange}
+
+                        />
                     </div>
 
                     <div>
@@ -28,7 +94,14 @@ const SignUp = () => {
                             <span className="text-base label-text">Password</span>
                         </label>
 
-                        <input type="password" placeholder="Enter Password" className="w-full input input-bordered h-10" />
+                        <input
+                            type="password"
+                            placeholder="Enter Password"
+                            className="w-full input input-bordered h-10"
+                            value={password}
+                            name='password'
+                            onChange={handleChange}
+                        />
                     </div>
 
                     <div>
@@ -36,22 +109,34 @@ const SignUp = () => {
                             <span className="text-base label-text">Confirm Password</span>
                         </label>
 
-                        <input type="password" placeholder="Confirm Password" className="w-full input input-bordered h-10" />
+                        <input
+                            type="password"
+                            placeholder="Confirm Password"
+                            className="w-full input input-bordered h-10"
+                            value={confirmPassword}
+                            name='confirmPassword'
+                            onChange={handleChange}
+
+                        />
                     </div>
 
-                    <GenderCheckBox />
+                    <GenderCheckBox onCheckboxChange={handleCheckBoxChange} selectedGender={gender} />
 
-                    <a className="text-sm hover:underline hover:text-blue-600 mt-4 inline-block" href="#">
+                    <Link to="/login" className="text-sm hover:underline hover:text-blue-600 mt-4 inline-block">
                         Already have an account?
-                    </a>
+                    </Link>
 
                     <div>
-                        <button className="btn btn-block btn-sm mt-2 border border-slate-700">Sign Up</button>
+                        <button className="btn btn-block btn-sm mt-2 border border-slate-700" disabled={loading}>
+                            {loading ? <span className='loading loading-spinner'></span> : 'Sign Up'}
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     )
 }
+
+//!----------------------------------------------------------------------------------------!//
 
 export default SignUp;

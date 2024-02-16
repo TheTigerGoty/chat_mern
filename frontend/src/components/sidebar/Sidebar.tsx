@@ -1,6 +1,8 @@
 import Conversations from "./Conversations"
-import { LogoutButton } from "./LogoutButton"
+import LogoutButton from "./LogoutButton"
 import SearchInput from "./SearchInput"
+
+//!----------------------------------------------------------------------------------------!//
 
 const Sidebar = () => {
     return (
@@ -13,5 +15,7 @@ const Sidebar = () => {
         </div>
     )
 }
+
+//!----------------------------------------------------------------------------------------!//
 
 export default Sidebar
