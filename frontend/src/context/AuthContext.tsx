@@ -3,9 +3,10 @@ import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useStat
 //!----------------------------------------------------------------------------------------!//
 
 export interface AuthUser {
-    id: number;
+    _id: string;
     username: string;
-    token: string;
+    profilePic: string;
+    fullname: string;
 }
 
 //*----------------------------------------------------------------------------------------*//
