@@ -6,7 +6,7 @@ import useConversation from "../../zustand/useConversation";
 
 interface MessageProps {
   message: {
-    shouldShake: any; //???????????????????????????
+    shouldShake: boolean;
     senderId: string;
     message: string;
     createdAt: string;
@@ -21,7 +21,7 @@ const Message: React.FC<MessageProps> = ({ message }) => {
   const { selectedConversation } = useConversation();
   const fromMe = message.senderId === authUser?._id;
   const formattedTime = extractTime(message.createdAt)
-	const chatClassName = fromMe ? "chat-end" : "chat-start";
+  const chatClassName = fromMe ? "chat-end" : "chat-start";
   const profilePic = fromMe ? authUser.profilePic : selectedConversation?.profilePic;
   const bubbleBgColor = fromMe ? 'bg-blue-500' : '';
   const shakeClass = message.shouldShake ? "shake" : "";

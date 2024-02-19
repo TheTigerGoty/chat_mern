@@ -8,7 +8,7 @@ export interface Message {
     senderId: string;
     message: string;
     createdAt: string;
-    shouldShake: any; //?????????????
+    shouldShake: boolean; 
 }
 
 //*----------------------------------------------------------------------------------------*//

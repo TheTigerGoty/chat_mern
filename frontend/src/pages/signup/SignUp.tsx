@@ -54,18 +54,18 @@ const SignUp = () => {
         <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
             <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
                 <h1 className="text-3xl font-semibold text-center text-gray-300">
-                    Sign Up
+                    SignUp {''}
                     <span className="text-blue-500">ChatApp</span>
                 </h1>
 
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label className="label p-2">
-                            <span className="text-base label-text">Full Name</span>
+                            <span className="text-base label-text">Nombre Completo</span>
                         </label>
                         <input
                             type="text"
-                            placeholder="Enter Fullname"
+                            placeholder="Ingresar Nombre Completo"
                             className="w-full input input-bordered h-10"
                             value={fullname}
                             name='fullname'
@@ -76,11 +76,11 @@ const SignUp = () => {
 
                     <div>
                         <label className="label p-2">
-                            <span className="text-base label-text">Username</span>
+                            <span className="text-base label-text">Nombre de Usuario</span>
                         </label>
                         <input
                             type="text"
-                            placeholder="Enter Username"
+                            placeholder="Ingresar Nombre de Usuario"
                             className="w-full input input-bordered h-10"
                             value={username}
                             name='username'
@@ -91,12 +91,12 @@ const SignUp = () => {
 
                     <div>
                         <label className="label">
-                            <span className="text-base label-text">Password</span>
+                            <span className="text-base label-text">Contraseña</span>
                         </label>
 
                         <input
                             type="password"
-                            placeholder="Enter Password"
+                            placeholder="Ingresar Contraseña"
                             className="w-full input input-bordered h-10"
                             value={password}
                             name='password'
@@ -106,12 +106,12 @@ const SignUp = () => {
 
                     <div>
                         <label className="label">
-                            <span className="text-base label-text">Confirm Password</span>
+                            <span className="text-base label-text">Confirmar Contraseña</span>
                         </label>
 
                         <input
                             type="password"
-                            placeholder="Confirm Password"
+                            placeholder="Verificar Contraseña"
                             className="w-full input input-bordered h-10"
                             value={confirmPassword}
                             name='confirmPassword'
@@ -123,12 +123,12 @@ const SignUp = () => {
                     <GenderCheckBox onCheckboxChange={handleCheckBoxChange} selectedGender={gender} />
 
                     <Link to="/login" className="text-sm hover:underline hover:text-blue-600 mt-4 inline-block">
-                        Already have an account?
+                        Ya tienes una cuenta? Ingresa Ahora
                     </Link>
 
                     <div>
                         <button className="btn btn-block btn-sm mt-2 border border-slate-700" disabled={loading}>
-                            {loading ? <span className='loading loading-spinner'></span> : 'Sign Up'}
+                            {loading ? <span className='loading loading-spinner'></span> : 'Registrarse'}
                         </button>
                     </div>
                 </form>

@@ -11,7 +11,7 @@ const GenderCheckBox: React.FC<GenderCheckBoxProps> = ({ onCheckboxChange, selec
         <div className="flex">
             <div className="form-control">
                 <label className={`label gap-2 cursor-pointer ${selectedGender === 'male' ? 'selected' : ''}`}>
-                    <span className="label-text">Male</span>
+                    <span className="label-text">Hombre</span>
                     <input
                         type="checkbox"
                         className="checkbox border-slate-900"
@@ -23,7 +23,7 @@ const GenderCheckBox: React.FC<GenderCheckBoxProps> = ({ onCheckboxChange, selec
 
             <div className="form-control">
                 <label className={`label gap-2 cursor-pointer ${selectedGender === 'female' ? 'selected' : ''}`}>
-                    <span className="label-text">Female</span>
+                    <span className="label-text">Mujer</span>
                     <input
                         type="checkbox"
                         className="checkbox border-slate-900"
